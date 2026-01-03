@@ -52,6 +52,7 @@ func main() {
 				Más info en: https://pkg.go.dev/strconv#Atoi
 
 			*/
+			dispatch(msg)
 			fmt.Println("len: " + strconv.Itoa(n) + " msg: " + msg)
 		}
 	}
