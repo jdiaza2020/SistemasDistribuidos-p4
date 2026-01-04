@@ -30,38 +30,46 @@ func (s *TallerState) applyCode(code int) {
 		// Taller inactivo: no hay atención.
 		s.Activo = false
 		s.Cerrado = false
-		// Mantener restricciones y prioridad como estaban (decisión razonable).
+
 	case 1:
 		s.Activo = true
 		s.Cerrado = false
 		s.SoloCategoria = CatA
+
 	case 2:
 		s.Activo = true
 		s.Cerrado = false
 		s.SoloCategoria = CatB
+
 	case 3:
 		s.Activo = true
 		s.Cerrado = false
 		s.SoloCategoria = CatC
+
 	case 4:
 		s.Activo = true
 		s.Cerrado = false
 		s.PrioridadCategoria = CatA
+
 	case 5:
 		s.Activo = true
 		s.Cerrado = false
 		s.PrioridadCategoria = CatB
+
 	case 6:
 		s.Activo = true
 		s.Cerrado = false
 		s.PrioridadCategoria = CatC
+
 	case 7, 8:
-		// No definido: se mantiene estado anterior.
+		// No definido: se mantiene el estado anterior.
 		return
+
 	case 9:
 		// Taller cerrado: no hay atención.
 		s.Activo = false
 		s.Cerrado = true
+
 	default:
 		// Fuera de rango: ignorar.
 		return

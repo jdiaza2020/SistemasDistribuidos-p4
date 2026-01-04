@@ -30,6 +30,7 @@ func main() {
 		logger.Fatal(err)
 	}
 	defer conn.Close()
+
 	buf := make([]byte, 512)
 	for {
 		n, err := conn.Read(buf)
@@ -52,7 +53,11 @@ func main() {
 				Más info en: https://pkg.go.dev/strconv#Atoi
 
 			*/
+
+			// Aquí “sale” la información a la goroutine (como pide el profe).
 			dispatch(msg)
+
+			// Debug temporal: lo que llega crudo desde el servidor.
 			fmt.Println("len: " + strconv.Itoa(n) + " msg: " + msg)
 		}
 	}

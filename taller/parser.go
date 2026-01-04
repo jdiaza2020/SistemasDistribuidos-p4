@@ -5,8 +5,8 @@ import (
 	"strings"
 )
 
-// parseIncoming reconstruye líneas con '\n' y extrae solo enteros 0..9.
-// Ignora textos del servidor (p.ej. "Taller localizado en ...").
+// parseIncoming recibe trozos (pueden venir fragmentados) y reconstruye por '\n'.
+// Extrae solo enteros 0..9; el resto (textos del servidor) se ignora.
 func parseIncoming(incoming <-chan string, out chan<- int) {
 	pending := ""
 
@@ -39,6 +39,6 @@ func parseIncoming(incoming <-chan string, out chan<- int) {
 		}
 	}
 
-	// Si cerramos incoming en el futuro, cerramos out.
+	// Si se cerrase incoming en algún momento, cerramos out.
 	close(out)
 }

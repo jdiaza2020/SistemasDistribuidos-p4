@@ -20,6 +20,7 @@ func controller(codes <-chan int, queries <-chan stateRequest) {
 			}
 			state.applyCode(code)
 			fmt.Println("ESTADO ACTUAL:", stateSummary(state)) // debug temporal
+
 		case req := <-queries:
 			req.reply <- state
 		}
